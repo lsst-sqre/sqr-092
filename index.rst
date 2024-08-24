@@ -61,7 +61,7 @@ float
     Encode all values other than positive infinity, negative infinity, and NaN as a JSON number.
     Encode positive infinity as the JSON string ``"+Inf"``.
     Encode negative infinity as the JSON string ``"-Inf"``.
-    Encode NaN as the JSON string ``NaN``.
+    Encode NaN as the JSON string ``"NaN"``.
 
 boolean
     Encode as the JSON literal ``true`` or ``false``.
