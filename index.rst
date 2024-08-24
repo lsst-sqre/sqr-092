@@ -18,6 +18,9 @@ Draft IVOA JSON encoding
        The draft protocol structure for IVOA web services.
        This specifies what should be included in a network protocol specification such as this one.
 
+   :sqr:`093`: Draft IVOA SODA web service specification
+       An example network protocol specification for a simple SODA cutout service using this framework.
+
 Overview
 ========
 
