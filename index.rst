@@ -18,6 +18,9 @@ Draft IVOA JSON encoding
        The draft protocol structure for IVOA web services.
        This specifies what should be included in a network protocol specification such as this one.
 
+   :sqr:`093`: Draft IVOA SODA web service specification
+       An example network protocol specification for a simple SODA cutout service using this framework.
+
 Overview
 ========
 
@@ -61,7 +64,7 @@ float
     Encode all values other than positive infinity, negative infinity, and NaN as a JSON number.
     Encode positive infinity as the JSON string ``"+Inf"``.
     Encode negative infinity as the JSON string ``"-Inf"``.
-    Encode NaN as the JSON string ``NaN``.
+    Encode NaN as the JSON string ``"NaN"``.
 
 boolean
     Encode as the JSON literal ``true`` or ``false``.
