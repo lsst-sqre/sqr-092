@@ -82,6 +82,7 @@ duration
 
 list
     Encode as a JSON array.
+    Object labels whose value type is a list must use the plural form of the label.
 
 .. _query-encoding:
 
@@ -131,6 +132,7 @@ timestamp
     More than four digits are permitted for the year to specify dates after 9999 CE; however, these may not be supported in all implementations.
     Include at least hours, minutes, and seconds in the time.
     Milliseconds, if present, are encoded as a fractional part after the seconds using U+002E (``.``) as the decimal mark.
+    The encoded timestamp must end in ``Z`` and must not include time zone offset information in any other format.
     For example, ``2024-08-23T14:42:47.043Z``.
 
 duration
@@ -138,9 +140,7 @@ duration
     Milliseconds, if present, are encoded as a fractional part after the seconds using U+002E (``.``) as the decimal mark.
 
 list
-    Encode each value separately and then use a single space (U+0020) as a separator between each value.
-    This encoding therefore cannot encode any value that itself contains a space.
-    Web service specifications should keep this in mind when deciding what operations support ``GET``.
+    Repeat the query parameter for each value, encoding each value following the regular rules for its data type.
 
 .. _requests:
 
