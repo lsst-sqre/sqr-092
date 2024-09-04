@@ -151,6 +151,10 @@ Requests
 ========
 
 All client requests are HTTP requests.
+
+Verbs
+-----
+
 The HTTP verb is mostly determined by the type of the operation.
 When a web service supports this network protocol, it must choose the appropriate verb in several cases discussed in detail below.
 
@@ -175,6 +179,21 @@ action
 
 In all cases except ``GET`` and ``DELETE``, the client must provide a body in JSON format, consisting of an encoding of the request object described in the web service specification.
 The client must send the ``Content-Type: application/json`` header to indicate that this request body is in JSON format.
+
+Content negotiation
+-------------------
+
+When making a request for an operation that responds with data rather than a protocol object, the client can request the format of that object by using HTTP content negotiation.
+For example, for an operation that returns an image, the client may wish that image in ``image/jpeg`` format instead of ``application/fits``.
+
+To do this, the client should send an HTTP ``Accept`` header with its content preferences following the standard ``Accept`` header syntax.
+The server may reply with data in any of the formats the client indicates it accepts, but should prefer a format with a higher weight over a format with a lower weight if it knows how to produce either format.
+The server may ignore this preference and return the easiest format to generate if it is under excessive load or otherwise needs to limit the amount of work that it does in response to the request.
+
+If none of the MIME types listed in the ``Accept`` header are supported by the server, the server should reply with an HTTP 406 error rather than a default format.
+The body of that error should include a list of MIME types that the server is able to generate as part of the JSON-encoded error message.
+
+If the server supports content negotiation and the client sent the ``Accept`` header, the server must include a ``Vary`` header in the response, specifying the headers that it used in its decision.
 
 Responses
 =========
