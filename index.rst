@@ -14,7 +14,7 @@ Draft IVOA JSON encoding
 
 .. seealso::
 
-   :sqr:`91`: Draft IVOA web service standards framework
+   :sqr:`091`: Draft IVOA web service standards framework
        The draft protocol structure for IVOA web services.
        This specifies what should be included in a network protocol specification such as this one.
 
